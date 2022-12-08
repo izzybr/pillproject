@@ -138,13 +138,13 @@ class C3PI_Ref(PillProject):
         r = requests.get(self.location, stream = True)
         if r.ok:
             try:
-                with open(f'./data/{xxx.name}', 'wb') as f:
+                with open(f'./data/{self.name}', 'wb') as f:
                     r.raw.decode_content = True
                     sh.copyfileobj(r.raw, f)
                     f.close()
                 
                 #img = np.frombuffer(r.content, dtype='uint16')
-                self.img = cv2.imread(f'./data/{xxx.name}', cv2.IMREAD_UNCHANGED)
+                self.img = cv2.imread(f'./data/{self.name}', cv2.IMREAD_UNCHANGED)
                 return self.img
             finally:
                 pass    
