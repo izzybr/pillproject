@@ -1,5 +1,9 @@
 These tools were created to as part of a project for a graduate class on computer vision. The overall goal of the project was to train a convolutional neural network classifier to recognize/categorize medications. This part of the project identified a subset of images to be used for training These images and more information about them can be found at: https://data.lhncbc.nlm.nih.gov/public/Pills/index.html 
 
+Getting started:
+For a demo of the image processing and run:
+    python demo.py
+
 This work focuses on processing three types of images for use in a CNN model/workflow. Please refer to the image metadata to learn more about these types. A brief description of the images follows:
 
     - MC_C3PI_REFERENCE_SEG_V1.6 : These are 16bit RGBA images on a grey background. 41330 total images available. 
@@ -44,9 +48,7 @@ Image metadata is available in several formats:
         - generic / proprietary medication name,
         - in some cases camera metadata, and information about the background upon which the pill appears.
 
-Getting started:
-For a demo of the image processing and run:
-    python demo.py
+
 
 Alternatively, see the Gist for each type of image processing at:
 
@@ -56,4 +58,4 @@ Alternatively, see the Gist for each type of image processing at:
 
 Please note some of the processing functionalities requires downloading metadata from the NIH (see read_nih_data() in data_gen.py) or background images for the augmentation demo. 
 
-To create images for training, I recommend using a concatenation of NDC11 and Part. A single NDC11 may have multiple distinct pills, indeed, even a concatenation of NDC11 and Part still leads to a few images that while very similar visually, have a distinct imprint. For example, NDC11 = 00093316753, Part = 1 has images CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc84/images/CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG), and CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc77/images/CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG). It is left to the end user to decide whether to handle these as one class or not. 
+To create images for training, I recommend using a concatenation of NDC11 and Part. A single NDC11 may have multiple distinct pills, indeed, even a concatenation of NDC11 and Part still leads to a few images that while very similar visually, have a distinct imprint. For example, NDC11 = 00093316753, Part = 1 has images [CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG] (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc84/images/CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG), and [CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG] (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc77/images/CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG). It is left to the end user to decide whether to handle these as one class or not. 
