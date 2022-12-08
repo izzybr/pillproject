@@ -1,14 +1,17 @@
 These tools were created to as part of a project for a graduate class on computer vision. The overall goal of the project was to train a convolutional neural network classifier to recognize/categorize medications. This part of the project identified a subset of images to be used for training These images and more information about them can be found at: https://data.lhncbc.nlm.nih.gov/public/Pills/index.html 
 
 ### Getting started:
-For a demo of the image processing and run:
+For a demo of the image processing run:
+
     python demo.py
     
 Alternatively, see the Gist for each type of image processing at:
 
-    - [Gist1](https://gist.github.com/glitterballs/f314616f618c23a95a7c42bfe5dc2457)
-    - [Gist2](https://gist.github.com/glitterballs/7b94f8b3b181dfd6d98082e8b52bed27)
-    - [Gist3](https://gist.github.com/glitterballs/30643c65994a968aae2702b65fe244b2)
+   [C3PI Reference image processing](https://gist.github.com/glitterballs/f314616f618c23a95a7c42bfe5dc2457)
+   
+   [SPL Image Processing](https://gist.github.com/glitterballs/7b94f8b3b181dfd6d98082e8b52bed27)
+   
+   [Sliding HOG](https://gist.github.com/glitterballs/30643c65994a968aae2702b65fe244b2)
 
 This work focuses on processing three types of images for use in a CNN model/workflow. Please refer to the image metadata to learn more about these types. A brief description of the images follows:
 
