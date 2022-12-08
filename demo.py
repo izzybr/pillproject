@@ -51,6 +51,6 @@ for ndc11, part, location, imgclass, med_name in list(zip(fd['ndc11'], fd['part'
      splimg = SplImage(ndc11, part, location, imgclass, med_name)
      img1, img2 = splimg.split_spl()
      testdir(f'{path}/{splimg.ndcp}')
-     print(f'Processed {splimg.name}, writing to {path}/{xxx.ndcp}\n')
+     print(f'Processed {splimg.name}, writing to {path}/{splimg.ndcp}\n')
      cv2.imwrite(f'{path}/{splimg.ndcp}/SF_{splimg.name}', img1)
      cv2.imwrite(f'{path}/{splimg.ndcp}/SB_{splimg.name}', img2)
