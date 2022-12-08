@@ -37,8 +37,8 @@ fd = fd.iloc[mask]
 
 print('Processing MC_C3PI_REFERENCE_SEG_V1.6 images\n')
 for ndc11, part, location, imgclass, med_name in list(zip(fd['ndc11'], fd['part'], fd['location'], fd['imgclass'], fd['med_name'])):
-     xxx = C3PI_Ref(ndc11, part, location, imgclass, med_name)
-     xxx.make_image3(args['num'])
+     c3pir = C3PI_Ref(ndc11, part, location, imgclass, med_name)
+     c3pir.make_image3(args['num'])
 
 fd = df.loc[df['imgclass'] == 'MC_SPL_SPLIMAGE_V3.0']
 rng = np.random.default_rng()
@@ -48,9 +48,9 @@ fd = fd.iloc[mask]
 path = args['output_dir']
 print('Processing SPL Images')
 for ndc11, part, location, imgclass, med_name in list(zip(fd['ndc11'], fd['part'], fd['location'], fd['imgclass'], fd['med_name'])):
-     xxx = SplImage(ndc11, part, location, imgclass, med_name)
-     img1, img2 = xxx.split_spl()
-     testdir(f'{path}/{xxx.ndcp}')
-     print(f'Processed {xxx.name}, writing to {path}/{xxx.ndcp}\n')
-     cv2.imwrite(f'{path}/{xxx.ndcp}/SF_{xxx.name}', img1)
-     cv2.imwrite(f'{path}/{xxx.ndcp}/SB_{xxx.name}', img2)
+     splimg = SplImage(ndc11, part, location, imgclass, med_name)
+     img1, img2 = splimg.split_spl()
+     testdir(f'{path}/{splimg.ndcp}')
+     print(f'Processed {splimg.name}, writing to {path}/{xxx.ndcp}\n')
+     cv2.imwrite(f'{path}/{splimg.ndcp}/SF_{splimg.name}', img1)
+     cv2.imwrite(f'{path}/{splimg.ndcp}/SB_{splimg.name}', img2)
