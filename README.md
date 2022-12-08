@@ -1,8 +1,14 @@
 These tools were created to as part of a project for a graduate class on computer vision. The overall goal of the project was to train a convolutional neural network classifier to recognize/categorize medications. This part of the project identified a subset of images to be used for training These images and more information about them can be found at: https://data.lhncbc.nlm.nih.gov/public/Pills/index.html 
 
-Getting started:
+### Getting started:
 For a demo of the image processing and run:
     python demo.py
+    
+Alternatively, see the Gist for each type of image processing at:
+
+    - [Gist1](https://gist.github.com/glitterballs/f314616f618c23a95a7c42bfe5dc2457)
+    - [Gist2](https://gist.github.com/glitterballs/7b94f8b3b181dfd6d98082e8b52bed27)
+    - [Gist3](https://gist.github.com/glitterballs/30643c65994a968aae2702b65fe244b2)
 
 This work focuses on processing three types of images for use in a CNN model/workflow. Please refer to the image metadata to learn more about these types. A brief description of the images follows:
 
@@ -12,7 +18,7 @@ This work focuses on processing three types of images for use in a CNN model/wor
     
     - C3PI_TEST : Also 8bit RGB images. These are also referred to as 'consumer images', presumably, in the sense that as opposed to the above two classes, these images are not taken under controlled conditions, i.e. they have more natural variation. Presented here is an example of using a support vector machine classifier in combinaiton with sklearn.feature.hog() to extract images, although training an FCN blob detector is perhaps a better approach.
 
-Features:
+### Features:
 The available features depend on the type of image.
 
     - Images of type MC_C3PI_REFERENCE_SEG_V1.6 can be 'cleaned' in the sense that the banner is removed and the image is resized (while respecting aspect ratio) to the given output requirement. Optionally, these can also be augmented. See the section on augmentation. 
@@ -21,7 +27,7 @@ The available features depend on the type of image.
     
     - Extraction of consumer images using a support vector machine classifier in conjunction with a historgram of oriented gradients. This a computationally intensive approach, which can be prone to false positives. As noted above, training an FCN blob detector or alternatively, using a CUDA accelerated HOG() might be more a scalable alternative.  
 
-Augmentation:
+### Augmentation:
 This is currently only available for images of type MC_C3PI_REFERENCE_SEG_V1.6. The isolated image can be:
 
     - randomly rotated from 1-359 degrees
@@ -32,7 +38,7 @@ This is currently only available for images of type MC_C3PI_REFERENCE_SEG_V1.6. 
     
     - optionally return a boolean mask for semantic segmentation
 
-Image Metadata:
+### Image Metadata:
 Image metadata is available in several formats:
 
     1. XML files at https://data.lhncbc.nlm.nih.gov/public/Pills/ALLXML/index.html
@@ -49,13 +55,6 @@ Image metadata is available in several formats:
         - in some cases camera metadata, and information about the background upon which the pill appears.
 
 
-
-Alternatively, see the Gist for each type of image processing at:
-
-    - Gist1
-    - Gist2
-    - Gist3
-
 Please note some of the processing functionalities requires downloading metadata from the NIH (see read_nih_data() in data_gen.py) or background images for the augmentation demo. 
 
-To create images for training, I recommend using a concatenation of NDC11 and Part. A single NDC11 may have multiple distinct pills, indeed, even a concatenation of NDC11 and Part still leads to a few images that while very similar visually, have a distinct imprint. For example, NDC11 = 00093316753, Part = 1 has images [CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG] (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc84/images/CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG), and [CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG] (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc77/images/CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG). It is left to the end user to decide whether to handle these as one class or not. 
+To create images for training, I recommend using a concatenation of NDC11 and Part. A single NDC11 may have multiple distinct pills, indeed, even a concatenation of NDC11 and Part still leads to a few images that while very similar visually, have a distinct imprint. For example, NDC11 = 00093316753, Part = 1 has images [CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG](https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc84/images/CZT0ZZN08CQWE6UA6EUFM43SPG6UCLI.JPG), and [CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG]    (https://data.lhncbc.nlm.nih.gov/public/Pills/PillProjectDisc77/images/CSWXMSOIU836B3RJM3M-IZO_BFJBQ2G.JPG). It is left to the end user to decide whether to handle these as one class or not. 
