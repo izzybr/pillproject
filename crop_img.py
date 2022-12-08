@@ -23,6 +23,7 @@ def testdir(path):
         return None
 
 def small_img_rect(image: np.ndarray):
+    
     print(f'entering small_img_rect')
     #this assumes it is receving a four channel image
     b, g, r, a = cv2.split(image)

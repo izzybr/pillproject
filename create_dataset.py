@@ -47,7 +47,7 @@ def validate(feat: str, val: str) -> pd.DataFrame:
      if not(val.isupper()):
           print(f"Converting {val} to {val.upper()}")
           val = val.upper()
-     print(f'Capitalizing {feature} to {feat.capitalize()}')
+     #print(f'Capitalizing {feature} to {feat.capitalize()}')
      feat = feat.capitalize()
      path = f'/home/ngs/pillproject/validation/{feat}/{val}'
      predictions = []
@@ -83,18 +83,19 @@ validation_dir = '/home/ngs/pillproject/validation'
 dir = "/home/ngs/color_sort_color/"
 feat = 'Color'
 values = os.listdir(dir)
+
 #saved_model_path = '/home/ngs/color_training_code/PILL_COLOR_TRAIN/color_train_records/model.pth7292917175'
 for val in values:
     path = f'{validation_dir}/{feat}/{val}'
     print(f'Resolving path as {path}\n')
     # testdir checks if the directory exists, and attempts to create it ifthe directory does not exist
-    iz_val.testdir(path)
+    #iz_val.testdir(path)
     # check if images are present in the validation directory
-    n_validation_images_in_dir = os.listdir(f'{validation_dir}{feat}/{val}')
-    print(f'Found {len(n_validation_images_in_dir)}')
-    if(len(n_validation_images_in_dir) == 0):
-        print(f'Running define_and_copy_validation_images for feat = {feat}, val = {val}, n = {n_req_images}\n')
-        define_and_copy_validation_images(feat, val, n_req_images)
+    #n_validation_images_in_dir = os.listdir(f'{validation_dir}{feat}/{val}')
+    #print(f'Found {len(n_validation_images_in_dir)}')
+    #if(len(n_validation_images_in_dir) == 0):
+    #    print(f'Running define_and_copy_validation_images for feat = {feat}, val = {val}, n = {n_req_images}\n')
+    #    define_and_copy_validation_images(feat, val, n_req_images)
         #should probably add something to warn if zero images are copied
     res = validate(feat, val)
     val_df = pd.concat([val_df, res], axis = 0)
